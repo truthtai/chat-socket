@@ -4,9 +4,9 @@ var app = angular.module('App',
 		'ngMaterial',
 		'ui.router',
 		'lbServices',
-    'HomeModule',
-    'LoginModule',	
-    'SignupModule',	
+        'HomeModule',
+        'LoginModule',	
+        'SignupModule',	
 	]
 );
 
