@@ -39,17 +39,43 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider, $location
 		
    $httpProvider.defaults.useXDomain = true;
    delete $httpProvider.defaults.headers.common['X-Requested-With'];
-
+   // $httpProvider.interceptors.push(function($q, $location, LoopBackAuth) {
+    //   return {
+    //     responseError: function(rejection) {
+    //       if (rejection.status == 401) {
+    //         LoopBackAuth.clearUser();
+    //         LoopBackAuth.clearStorage();           
+    //         $location.path('/login');
+    //       }
+    //       return $q.reject(rejection);
+    //     }
+    //   };
+    // });
 });
-app.run(function ($rootScope, $state, $http, LoopBackAuth) {
+app.run(function ($rootScope, $state, $http, LoopBackAuth, Member) {
  
+       console.log($state.is('login'))
+    // if($state.is('login') !== true){
+    //     Member.prototype$__findById__accessTokens({id: LoopBackAuth.currentUserId, fk: LoopBackAuth.accessTokenId})
+    //       .$promise.then().catch(function(res){ 
+    //         if(res.status == 401) {
+    //           LoopBackAuth.clearUser();
+    //           LoopBackAuth.clearStorage();          
+    //           $state.go('login');
+    //         }
+            
+    //       });
+    // };
+     
+  
+        
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, error) {
     var requireLogin = toState.requireLogin;
     if (requireLogin && !LoopBackAuth.accessTokenId) {
       event.preventDefault();
       $state.go('login');
     }
-     
+
   });
 
 });

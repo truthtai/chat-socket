@@ -12,6 +12,7 @@ module.exports = function(app) {
    
     users[0].messengers.create({
       msg: 'A typing',
+      date: new Date()
     }, function(err, msg) {
       if (err) throw err;
 
@@ -21,6 +22,7 @@ module.exports = function(app) {
 	
 	users[1].messengers.create({
       msg: 'B typing',
+      date: new Date()
     }, function(err, msg) {
       if (err) throw err;
 
@@ -30,6 +32,7 @@ module.exports = function(app) {
 	
 	users[2].messengers.create({
       msg: 'C typing',
+      date: new Date()
     }, function(err, msg) {
       if (err) throw err;
 

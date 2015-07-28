@@ -1,5 +1,6 @@
 angular.module('LoginModule',[]).controller('LoginCtrl', LoginCtrl);
 function LoginCtrl(Member, $state, $mdToast){ 
+
   this.login = function(email,pass) {
     Member.login({email: email, password: pass})    
     .$promise
