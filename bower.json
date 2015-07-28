@@ -1,0 +1,22 @@
+{
+  "name": "live-set-event-source",
+  "version": "1.0.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {    
+    "angular-material": "~0.10.0",
+    "angular-resource": "~1.4.3",
+    "ui-router": "~0.2.15"
+  },
+  "homepage": "https://github.com/truthtai/live-set",
+  "authors": [
+    "truthtai"
+  ],
+  "description": "live-set, event-source"
+}

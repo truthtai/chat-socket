@@ -1,0 +1,25 @@
+<div layout="column" layout-margin layout-fill>
+	<md-content layout-padding class="md-whiteframe-z3">	
+		<md-list>
+		      <md-subheader class="md-no-sticky">
+				 <md-button class="md-button md-primary" ng-click="home.logout()">
+					LOGOUT	
+				</md-button>
+		</md-subheader>
+		      <md-list-item class="md-3-line" ng-repeat="m in home.messengers">		       
+		        <div class="md-list-item-text">
+		          <h3>{{ m.msg }}</h3>		         
+		        </div>
+		      </md-list-item>
+		</md-list>
+	</md-content>
+	<md-content layout-padding class="md-whiteframe-z3">	
+		<md-input-container>
+			<label for="chat">Chat</label>
+			<input type="text" ng-model="home.msg2" />
+		</md-input-container>
+		<md-button class="md-button md-primary md-raised" ng-click="home.ok(home.msg2)">
+			Chat	
+		</md-button>
+	</md-content>
+</div>

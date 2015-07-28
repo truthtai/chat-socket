@@ -1,0 +1,21 @@
+<div layout="comlumn">
+  <form ng-submit="signup.signup(signup.email, signup.password)" style="    padding: 10% 0 0 40%;">
+    <h3>SIGN UP</h3>
+      <md-content class="md-whiteframe-z2" layout-padding layout-fill>
+        <md-input-container>
+          <label>EMAIL</label>
+          <input type="text" ng-model="signup.email" required/>
+        </md-input-container>
+        <md-input-container>
+          <label>PASSWORD</label>
+          <input type="password" ng-model="signup.password" requred/>
+        </md-input-container>
+        <md-button class="md-button md-primary md-raised" type="submit">
+         SIGN UP
+        </md-button>
+        <md-button class="md-button md-primary" ui-sref="login">
+          LOGIN
+        </md-button>
+      </md-content>
+  </form>
+</div>
