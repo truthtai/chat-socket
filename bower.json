@@ -1,5 +1,5 @@
 {
-  "name": "live-set-event-source",
+  "name": "chat-socket",
   "version": "1.0.0",
   "license": "MIT",
   "ignore": [
@@ -14,9 +14,9 @@
     "angular-resource": "~1.4.3",
     "ui-router": "~0.2.15"
   },
-  "homepage": "https://github.com/truthtai/live-set",
+  "homepage": "https://github.com/truthtai/chat-socket",
   "authors": [
     "truthtai"
   ],
-  "description": "live-set, event-source"
+  "description": "chat-socket"
 }

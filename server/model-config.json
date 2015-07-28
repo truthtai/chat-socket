@@ -35,5 +35,9 @@
   "Messenger": {
     "dataSource": "db",
     "public": true
+  },
+  "Member": {
+    "dataSource": "db",
+    "public": true
   }
 }

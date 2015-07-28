@@ -49,7 +49,7 @@ app.run(function ($rootScope, $state, $http, LoopBackAuth) {
       event.preventDefault();
       $state.go('login');
     }
-    
+     
   });
 
 });
@@ -61,4 +61,3 @@ function AppCtrl (){
 	
 }
 
-var socket = io();

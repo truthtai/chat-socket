@@ -8,7 +8,8 @@
 		</md-subheader>
 		      <md-list-item class="md-3-line" ng-repeat="m in home.messengers">		       
 		        <div class="md-list-item-text">
-		          <h3>{{ m.msg }}</h3>		         
+						<md-icon md-font-set="material-icons" ng-click="home.delete(m.id)">delete</md-icon>	
+					<h3>{{ m.msg }}</h3>		         
 		        </div>
 		      </md-list-item>
 		</md-list>

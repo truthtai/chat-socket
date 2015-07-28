@@ -34,7 +34,7 @@ function homeCtrl(Messenger, $scope, Member, $state, $mdToast) {
 	vm.ok = function(msg2){
 		   if(msg2){
           Messenger.create({msg: msg2, date: new Date(), memberId: localStorage.getItem('$LoopBack$currentUserId')});           
-			    //console.log(msg2);
+			    console.log(msg2);
           socket.emit('chat message',{msg: msg2, date:new Date(), memberId: localStorage.getItem('$LoopBack$currentUserId')});
          vm.msg2 = '';
        }

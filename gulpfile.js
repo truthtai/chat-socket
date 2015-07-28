@@ -2,10 +2,11 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglifyjs'),
     browsersync = require('browser-sync'),
     concat = require('gulp-concat'),
-    minifyCss = require('gulp-minify-css');
-    sourcemaps = require('gulp-sourcemaps');
-    rename = require('gulp-rename');
-    var loopbackAngular = require('gulp-loopback-sdk-angular');
+    minifyCss = require('gulp-minify-css'),
+    sourcemaps = require('gulp-sourcemaps'),
+    rename = require('gulp-rename'),
+    nodemon = require('gulp-nodemon'),
+    loopbackAngular = require('gulp-loopback-sdk-angular');
 	
 	
 gulp.task('html', function(){
@@ -21,13 +22,13 @@ gulp.task('miniJS', function() {
 
 });
 
-gulp.task('browsersync', function(cb) {
-    return browsersync({
-        server: {
-            baseDir:'./client'
-        }
-    }, cb);
-});
+// gulp.task('browsersync', function(cb) {
+//     return browsersync({
+//         server: {
+//             baseDir:'./client'
+//         }
+//     }, cb);
+// });
 
 var filesJS = [
         './bower_components/angular/angular.min.js',
@@ -38,11 +39,18 @@ var filesJS = [
         './bower_components/angular-resource/angular-resource.min.js'
     ];
 	
+ 
+  
 var filesCSS = [
     './bower_components/angular-material/angular-material.min.css'
 ]     
+   
+gulp.task('moveMAP', function(){
+  gulp.src(['./bower_components/angular-resource/angular-resource.min.js.map'])
+  .pipe(gulp.dest('client/dist/js'));  
+});   
     
-gulp.task('moveJS', function(){
+gulp.task('moveJS',['moveMAP'], function(){
   gulp.src(filesJS)  
   .pipe(concat('resources.js'))
   .pipe(gulp.dest('client/dist/js'));  
@@ -66,10 +74,13 @@ gulp.task('watch', function () {
   gulp.watch('client/components/**/*.html', ['html', browsersync.reload]);   
   gulp.watch('*.html', ['html', browsersync.reload]); 
   gulp.watch('client/*.js', ['html', browsersync.reload]);
- 
-
-
 });
+
+gulp.task('node', function(){
+    nodemon({
+      script: 'server/server.js'   
+    })
+})
  
-gulp.task('default', ['browsersync', 'watch', 'moveJS', 'moveCSS', 'LB']);
+gulp.task('default', [/*'browsersync', */'watch', 'moveJS', 'moveCSS', 'node']);
 
